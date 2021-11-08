@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="estado">
+        <item>Por hacer</item>
+        <item>En realización</item>
+        <item>Hecho</item>
+        <item>Revisada</item>
+    </string-array>
+</resources>

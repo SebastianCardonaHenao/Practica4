@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Practica4</string>
+    <string name="submit">Aceptar</string>
+    <string name="cat">Categoria</string>
+    <string name="prio">Prioridad</string>
+    <string name="estado">Estado</string>
+    <string name="msg_seleccion">Has seleccionado: </string>
+</resources>

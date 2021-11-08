@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categoria">
+        <item>Reparación</item>
+        <item>Comercial</item>
+        <item>Secretaría</item>
+        <item>Contable</item>
+        <item>Cocinero</item>
+    </string-array>
+</resources>
