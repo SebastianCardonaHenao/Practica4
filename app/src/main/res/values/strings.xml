@@ -4,5 +4,26 @@
     <string name="cat">Categoria</string>
     <string name="prio">Prioridad</string>
     <string name="estado">Estado</string>
-    <string name="msg_seleccion">Has seleccionado: </string>
+    <string name="msg_seleccion">Prioridad asignada: </string>
+    <string-array name="categoria">
+        <item>Reparación</item>
+        <item>Comercial</item>
+        <item>Secretaría</item>
+        <item>Contable</item>
+        <item>Cocinero</item>
+        <item>Sin Categoría</item>
+    </string-array>
+    <string-array name="estado">
+        <item>Por hacer</item>
+        <item>En realización</item>
+        <item>Hecho</item>
+        <item>Revisada</item>
+    </string-array>
+    <string-array name="prioridad">
+        <item>Alta</item>
+        <item>Media</item>
+        <item>Baja</item>
+        <item>¡Urgente!</item>
+        <item>Sin prioridad</item>
+    </string-array>
 </resources>

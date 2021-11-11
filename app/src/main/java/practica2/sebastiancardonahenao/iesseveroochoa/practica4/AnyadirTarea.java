@@ -31,7 +31,7 @@ public class AnyadirTarea extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapterPrio = ArrayAdapter.createFromResource(this,
                 R.array.prioridad, android.R.layout.simple_spinner_item);
         prioridad.setAdapter(adapterPrio);
-        /**prioridad.setOnItemClickListener(
+        prioridad.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent,
                                                android.view.View v, int position, long id) {
@@ -42,9 +42,7 @@ public class AnyadirTarea extends AppCompatActivity {
                     public void onNothingSelected(AdapterView<?> parent) {
 
                     }
-                });**/
-
-
+                });
     }
 
 
