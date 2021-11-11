@@ -5,6 +5,9 @@
     <string name="prio">Prioridad</string>
     <string name="estado">Estado</string>
     <string name="msg_seleccion">Prioridad asignada: </string>
+    <string name="eliminar">Borrar</string>
+    <string name="anyadir">Añadir</string>
+    <string name="acercade">Acerca de...</string>
     <string-array name="categoria">
         <item>Reparación</item>
         <item>Comercial</item>
