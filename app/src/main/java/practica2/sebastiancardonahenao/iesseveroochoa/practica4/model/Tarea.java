@@ -1,11 +1,11 @@
-package practica2.sebastiancardonahenao.iesseveroochoa.practica4;
+package practica2.sebastiancardonahenao.iesseveroochoa.practica4.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Elemento implements Parcelable {
+public class Tarea implements Parcelable {
 
-    static int contador=1;
+    static int CONTADOR=1;
     private int id;
     private String estado;
     private String categoria;
@@ -14,7 +14,7 @@ public class Elemento implements Parcelable {
     private String resumen;
     private String desc;
 
-    public Elemento(int id, String estado, String categoria, String prioridad, String tecnico, String resumen, String desc) {
+    public Tarea(int id, String estado, String categoria, String prioridad, String tecnico, String resumen, String desc) {
         this.id = id;
         this.estado = estado;
         this.categoria = categoria;
@@ -24,7 +24,7 @@ public class Elemento implements Parcelable {
         this.desc = desc;
     }
 
-    public Elemento(String estado, String categoria, String prioridad, String tecnico, String resumen, String desc) {
+    public Tarea(String estado, String categoria, String prioridad, String tecnico, String resumen, String desc) {
         this.estado = estado;
         this.categoria = categoria;
         this.prioridad = prioridad;
@@ -92,7 +92,7 @@ public class Elemento implements Parcelable {
         this.desc = source.readString();
     }
 
-    protected Elemento(Parcel in) {
+    protected Tarea(Parcel in) {
         this.id = in.readInt();
         this.estado = in.readString();
         this.categoria = in.readString();
@@ -102,15 +102,15 @@ public class Elemento implements Parcelable {
         this.desc = in.readString();
     }
 
-    public static final Creator<Elemento> CREATOR = new Creator<Elemento>() {
+    public static final Creator<Tarea> CREATOR = new Creator<Tarea>() {
         @Override
-        public Elemento createFromParcel(Parcel source) {
-            return new Elemento(source);
+        public Tarea createFromParcel(Parcel source) {
+            return new Tarea(source);
         }
 
         @Override
-        public Elemento[] newArray(int size) {
-            return new Elemento[size];
+        public Tarea[] newArray(int size) {
+            return new Tarea[size];
         }
     };
 }

@@ -14,7 +14,11 @@ public class DialogoAlerta extends DialogFragment {
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(getActivity());
 
-        builder.setMessage("Esto es un mensaje de alerta.")
+        builder.setMessage("Práctica 4\n" +
+                "V 1.0\n" +
+                "Sebastián Cardona Henao\n" +
+                "Licencia cc\n" +
+                "(Creative Commons)")
                 .setTitle("Acerca de...")
                 .setPositiveButton("ACEPTAR", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
