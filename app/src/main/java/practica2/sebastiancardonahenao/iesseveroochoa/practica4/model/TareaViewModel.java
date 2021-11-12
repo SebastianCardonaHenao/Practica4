@@ -3,12 +3,13 @@ package practica2.sebastiancardonahenao.iesseveroochoa.practica4.model;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TareaViewModel {
+public class TareaViewModel extends AndroidViewModel {
     //si queremos que la actividad reciba un aviso cuando se modifican los datos, tenemos que crear
     //un LiveData(https://developer.android.com/topic/libraries/architecture/livedata)
     //

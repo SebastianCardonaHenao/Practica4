@@ -26,7 +26,7 @@
         <item>Alta</item>
         <item>Media</item>
         <item>Baja</item>
-        <item>¡Urgente!</item>
+        <item>Urgente</item>
         <item>Sin prioridad</item>
     </string-array>
 </resources>

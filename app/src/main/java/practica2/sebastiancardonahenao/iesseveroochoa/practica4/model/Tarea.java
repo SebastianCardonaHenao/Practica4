@@ -3,6 +3,8 @@ package practica2.sebastiancardonahenao.iesseveroochoa.practica4.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Objects;
+
 public class Tarea implements Parcelable {
 
     static int CONTADOR=1;
@@ -15,7 +17,7 @@ public class Tarea implements Parcelable {
     private String desc;
 
     public Tarea(int id, String estado, String categoria, String prioridad, String tecnico, String resumen, String desc) {
-        this.id = id;
+        this.id = CONTADOR++;
         this.estado = estado;
         this.categoria = categoria;
         this.prioridad = prioridad;
@@ -32,6 +34,7 @@ public class Tarea implements Parcelable {
         this.resumen = resumen;
         this.desc = desc;
     }
+
 
     public int getId() {        return id;    }
 
@@ -113,4 +116,17 @@ public class Tarea implements Parcelable {
             return new Tarea[size];
         }
     };
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tarea)) return false;
+        Tarea tarea = (Tarea) o;
+        return id == tarea.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
