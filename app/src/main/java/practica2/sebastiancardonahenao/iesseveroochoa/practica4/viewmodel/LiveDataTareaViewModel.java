@@ -1,15 +1,18 @@
-package practica2.sebastiancardonahenao.iesseveroochoa.practica4.model;
+package practica2.sebastiancardonahenao.iesseveroochoa.practica4.viewmodel;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TareaViewModel extends AndroidViewModel {
+import practica2.sebastiancardonahenao.iesseveroochoa.practica4.model.Tarea;
+
+public class LiveDataTareaViewModel extends AndroidViewModel {
     //si queremos que la actividad reciba un aviso cuando se modifican los datos, tenemos que crear
     //un LiveData(https://developer.android.com/topic/libraries/architecture/livedata)
     //
@@ -17,7 +20,7 @@ public class TareaViewModel extends AndroidViewModel {
 
     private List<Tarea> listaTareas;
 
-    public TareaViewModel(@NonNull Application application) {
+    public LiveDataTareaViewModel(@NonNull Application application) {
         super(application);
         //el liveData nos permitirá recibir notificaciones  en la actividad cuando se modifique la lista
         listaTareasLiveData=new MutableLiveData<List<Tarea>>();
@@ -26,6 +29,9 @@ public class TareaViewModel extends AndroidViewModel {
         //avisamos de la modificación con el LiveData
         listaTareasLiveData.setValue(listaTareas);
     }
+
+    public LiveData<List<Tarea>> getUserList(){ return listaTareasLiveData; }
+
     public void addNota(Tarea tarea){
         //añadimos una Nota a la lista, si existe(mismo id), la sustituimos
         int i=listaTareas.indexOf(tarea);

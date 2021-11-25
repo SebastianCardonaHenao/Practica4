@@ -16,17 +16,8 @@ public class Tarea implements Parcelable {
     private String resumen;
     private String desc;
 
-    public Tarea(int id, String estado, String categoria, String prioridad, String tecnico, String resumen, String desc) {
-        this.id = CONTADOR++;
-        this.estado = estado;
-        this.categoria = categoria;
-        this.prioridad = prioridad;
-        this.tecnico = tecnico;
-        this.resumen = resumen;
-        this.desc = desc;
-    }
-
     public Tarea(String estado, String categoria, String prioridad, String tecnico, String resumen, String desc) {
+        this.id = CONTADOR++;
         this.estado = estado;
         this.categoria = categoria;
         this.prioridad = prioridad;
