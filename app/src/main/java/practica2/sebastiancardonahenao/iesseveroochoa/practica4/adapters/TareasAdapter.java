@@ -100,7 +100,7 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
             tvResumen = itemView.findViewById(R.id.resumen);
             tvTecnico = itemView.findViewById(R.id.tecnico);
             ivEstado = itemView.findViewById(R.id.imagenTarea);
-            //lytItem = itemView.findViewById(R.id.lyt_Item);
+            lytItem = itemView.findViewById(R.id.lyt_Item);
             ivBorrar = itemView.findViewById(R.id.borrar);
             ivEditar = itemView.findViewById(R.id.editar);
 

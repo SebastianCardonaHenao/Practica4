@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         }
         Intent intent;
         intent = new Intent(this, claseActivity);
-        startActivity(intent);
+        startActivityForResult(this,claseActivity);
     }
 
     @Override

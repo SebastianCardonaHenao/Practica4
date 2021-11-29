@@ -7,7 +7,10 @@
     <string name="msg_seleccion">Prioridad asignada: </string>
     <string name="eliminar">Borrar</string>
     <string name="anyadir">Añadir</string>
-    <string name="acercade">Acerca de...</string>
+    <string name="acercade">Acerca de &#8230;</string>
+    <string name="tec">Técnico asignado</string>
+    <string name="brevDesc">Breve descripción</string>
+    <string name="descEntera">Descripción</string>
     <string-array name="categoria">
         <item>Reparación</item>
         <item>Instalación</item>

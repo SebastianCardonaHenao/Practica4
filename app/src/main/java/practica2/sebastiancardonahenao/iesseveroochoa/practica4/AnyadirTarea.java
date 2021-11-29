@@ -3,6 +3,7 @@ package practica2.sebastiancardonahenao.iesseveroochoa.practica4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -15,6 +16,7 @@ public class AnyadirTarea extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTitle("Nueva Tarea");
         setContentView(R.layout.activity_anyadir_tarea);
 
         categorias = (Spinner)findViewById(R.id.spCat);
@@ -43,6 +45,11 @@ public class AnyadirTarea extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    public void Guardar(View v){
+
+
     }
 
 
