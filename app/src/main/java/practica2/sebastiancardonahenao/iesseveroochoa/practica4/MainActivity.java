@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                tareaViewModel.addNota(new Tarea("Alguno","Otro","alta","Sebastián","DatoNuevo","Descripcion Nueva"));
+                tareaViewModel.addNota(new Tarea("Abierta","Otros","Alta","Sebastián","DatoNuevo","Descripcion Nueva"));
 
                 return true;
             case R.id.action_del:

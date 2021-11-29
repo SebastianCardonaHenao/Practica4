@@ -46,7 +46,7 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
                 case "Terminada":
                     holder.ivEstado.setImageResource(R.drawable.hecho);
             }
-            /**switch (tarea.getPrioridad()) {
+            switch (tarea.getPrioridad()) {
                 case "Alta":
                     holder.lytItem.setBackgroundResource(R.color.Alta);
                     break;
@@ -56,7 +56,7 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
                 case "Baja":
                     holder.lytItem.setBackgroundResource(R.color.Baja);
                     break;
-            }*/
+            }
         }
     }
 
