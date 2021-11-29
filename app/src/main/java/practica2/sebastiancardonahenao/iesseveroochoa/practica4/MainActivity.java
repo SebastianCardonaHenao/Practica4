@@ -2,22 +2,46 @@ package practica2.sebastiancardonahenao.iesseveroochoa.practica4;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.util.List;
+
+import practica2.sebastiancardonahenao.iesseveroochoa.practica4.adapters.TareasAdapter;
 import practica2.sebastiancardonahenao.iesseveroochoa.practica4.model.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    TareasAdapter adaptadorLista;
+    private RecyclerView rvLista;
+    private TareaViewModel tareaViewModel;
+    private TareasAdapter tareasAdapter;
+    private int cuentaTreas =1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        rvLista = findViewById(R.id.tareaRV);
+
+        tareasAdapter = new TareasAdapter();
+        rvLista.setLayoutManager(new LinearLayoutManager(this));
+        rvLista.setAdapter(tareasAdapter);
+
+        tareaViewModel = new ViewModelProvider(this).get(TareaViewModel.class);
+        tareaViewModel.getUserList().observe(this, new Observer<List<Tarea>>() {
+            @Override
+            public void onChanged(List<Tarea> tareas) {
+                tareasAdapter.setListaTareas(tareas);
+            }
+        });
     }
 
     public void accionBotones(View v) {
@@ -43,11 +67,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                adaptadorLista.addElemento(new Tarea("sin hacer","Prueba","Máxima","Sebastián","DatoNuevo","Descripcion Nueva"));
+                tareaViewModel.addNota(new Tarea("Alguno","Otro","alta","Sebastián","DatoNuevo","Descripcion Nueva"));
 
                 return true;
             case R.id.action_del:
-                adaptadorLista.delElemento();
+                //tareaViewModel.delNota();
                 return true;
             case R.id.action_acercade:
                 FragmentManager fragmentManager = getSupportFragmentManager();
