@@ -53,6 +53,13 @@ public class TareaViewModel extends AndroidViewModel {
         }
     }
 
+    public void delNota(){
+        if (listaTareas.size()>0){
+            listaTareas.remove(0);
+            listaTareasLiveData.setValue(listaTareas);
+        }
+    }
+
     private void crearDatos() {
 
         listaTareas=new ArrayList<Tarea>();

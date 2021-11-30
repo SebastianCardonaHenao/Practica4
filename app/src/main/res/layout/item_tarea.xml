@@ -17,7 +17,7 @@
 
     <TextView
         android:id="@+id/resumen"
-        android:layout_width="@android:dimen/thumbnail_width"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/editar"
@@ -29,24 +29,23 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/editar"
         app:layout_constraintStart_toEndOf="@+id/imagenTarea"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="@+id/imagenTarea" />
 
     <TextView
         android:id="@+id/tecnico"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/resumen"
         android:layout_alignStart="@+id/resumen"
         android:layout_alignEnd="@+id/resumen"
         android:layout_alignBottom="@+id/imagenTarea"
-        android:layout_marginEnd="12dp"
         android:ellipsize="end"
-        android:maxLines="2"
+        android:maxLines="1"
         android:text="Breve descripción de cada item"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/editar"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imagenTarea"
+        app:layout_constraintStart_toStartOf="@+id/resumen"
         app:layout_constraintTop_toBottomOf="@+id/resumen"
         tools:text="Este texto será para el técnico." />
 
@@ -57,8 +56,8 @@
         android:layout_marginEnd="1dp"
         android:layout_toStartOf="@+id/borrar"
         app:layout_constraintEnd_toStartOf="@+id/borrar"
-        app:srcCompat="@drawable/addicon"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="@+id/resumen"
+        app:srcCompat="@drawable/ic_action_name" />
 
     <ImageView
         android:id="@+id/borrar"
@@ -67,8 +66,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/addicon"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="@+id/editar"
+        app:srcCompat="@drawable/ic_delete" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

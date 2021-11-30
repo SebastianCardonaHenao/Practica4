@@ -18,6 +18,7 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
     private List<Tarea> listaTareas;
     private OnItemClickBorrarListener listenerBorrar;
     private OnItemClickTareaListener listenerClickTarea;
+    private OnIntemEditarListener listenerEditar;
 
     @NonNull
     @Override
@@ -30,7 +31,7 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
     @Override
     public void onBindViewHolder(@NonNull TareaViewHolder holder, int position) {
         if (listaTareas != null) {
-            //recuperamos la nota a mostrar
+            //recuperamos la tarea a mostrar
             final Tarea tarea = listaTareas.get(position);
             //mostramos los datos;
             holder.tvResumen.setText(tarea.getId()+"-"+tarea.getResumen());
@@ -65,21 +66,6 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
         notifyDataSetChanged(); //Notifica el cambio para recargar la lista
     }
 
-    public interface OnItemClickBorrarListener {
-        void onItemClickBorrar(Tarea tarea);
-    }
-    public interface OnItemClickTareaListener{
-        void onItemClickTarea(Tarea tarea);
-    }
-
-
-    public void setOnClickBorrarListener(OnItemClickBorrarListener listener) {
-        this.listenerBorrar = listener;
-    }
-    public void setOnClickTareaListener(OnItemClickTareaListener listener) {
-        this.listenerClickTarea = listener;
-    }
-
     @Override
     public int getItemCount(){
         if(listaTareas != null)
@@ -104,24 +90,49 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
             ivBorrar = itemView.findViewById(R.id.borrar);
             ivEditar = itemView.findViewById(R.id.editar);
 
-            ivBorrar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(listenerBorrar!=null)
-                        listenerBorrar.onItemClickBorrar(listaTareas.get(TareaViewHolder.this.getAbsoluteAdapterPosition()));
-                }
+            ivBorrar.setOnClickListener(view -> {
+                if(listenerBorrar!=null)
+                    listenerBorrar.onItemClickBorrar(listaTareas.get(TareaViewHolder.this.getAbsoluteAdapterPosition()));
+            });
+
+            ivEditar.setOnClickListener(view -> {
+                if (listenerEditar!=null)
+                    listenerEditar.onItemEditar(listaTareas.get(TareaViewHolder.this.getAbsoluteAdapterPosition()));
             });
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listenerClickTarea !=null)
-                        listenerClickTarea.onItemClickTarea(listaTareas.get(TareaViewHolder.this.getAbsoluteAdapterPosition()));
+                    if (listenerClickTarea != null)
+                        listenerClickTarea.onItemClickTarea(listaTareas.get( TareaViewHolder.this.getAbsoluteAdapterPosition()));
                 }
             });
         }
     }
 
+    public interface OnItemClickBorrarListener {
+        void onItemClickBorrar(Tarea tarea);
+    }
+    public interface OnItemClickTareaListener{
+        void onItemClickTarea(Tarea tarea);
+    }
+    public interface OnIntemEditarListener{
+        void onItemEditar(Tarea tarea);
+    }
+
+    /**
+     * permiten crear el listener de acción
+     * @param listener
+     */
+    public void setOnClickBorrarListener(OnItemClickBorrarListener listener) {
+        this.listenerBorrar = listener;
+    }
+    public void setOnClickTareaListener(OnItemClickTareaListener listener) {
+        this.listenerClickTarea = listener;
+    }
+    public void setOnClickEditarLister(OnIntemEditarListener listener){
+        this.listenerEditar = listener;
+    }
 
 
 }
