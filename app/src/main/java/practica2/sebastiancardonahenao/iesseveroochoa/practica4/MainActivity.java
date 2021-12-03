@@ -54,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
         tareasAdapter.setOnClickBorrarListener(new TareasAdapter.OnItemClickBorrarListener() {
             @Override
             public void onItemClickBorrar(Tarea tarea) {
-                //mostramos un dialogo para preguntar si borramos y
-                //llamamos al ViewModel para que actualice la lista
+                //mostramos un dialogo para preguntar si borramos
                 borrarTarea(tarea);
             }
         });
@@ -76,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void editarTarea(Tarea tarea) {
+        //Enviamos la tarea a editar y luego la recogemos
         Intent i = new Intent(this, AnyadirTarea.class);
         i.putExtra("Datos",tarea);
         mStartForResultTarea2.launch(i);
@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void accionBotones(View v) {
+        //Enviamos un null en la tarea
         Intent i = new Intent(this, AnyadirTarea.class);
         i.putExtra("Datos",tareaEnviar);
         mStartForResultTarea.launch(i);
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                tareaViewModel.addNota(new Tarea("Abierta","Otros","Alta","Sebastián","DatoNuevo","Descripcion Nueva"));
+                accionBotones(null);
 
                 return true;
             case R.id.action_del:
@@ -129,6 +130,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+    private void editado(Tarea tarea) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+        dialog.setMessage("La tarea se ha editado\n"+
+                "con Exito.")
+                .setTitle("Tarea "+tarea.getId()+ " editada.")
+                .setPositiveButton("ACEPTAR", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        dialog.create();
+        dialog.show();
+    }
+
     ActivityResultLauncher<Intent> mStartForResultTarea2= registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
@@ -137,10 +152,9 @@ public class MainActivity extends AppCompatActivity {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         //recuperamos los dados
                         Intent intent = result.getData();
-                        Tarea tarea = intent.getExtras().getParcelable("Datos");
-                        tareasAdapter.notify();
-
-                        ///AGGGGGGGGGGGGGGGGGG ESTO ES IMPOSIBLEE
+                        tareaViewModel.addNota(intent.getParcelableExtra("Datos"));
+                        tareaEnviar=null;
+                        editado(intent.getParcelableExtra("Datos"));
                     }
                 }
             });

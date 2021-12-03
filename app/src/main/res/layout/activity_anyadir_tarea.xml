@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/azul_cielo"
-    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".AnyadirTarea">
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabGuardar"
@@ -123,18 +123,19 @@
         app:layout_constraintTop_toBottomOf="@+id/breveDesc" />
 
 
-
     <EditText
         android:id="@+id/tecnicoAsig"
         android:layout_width="381dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/tec"
         android:ems="10"
-        android:text="@string/tec"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/spEstado"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:text="@string/tec" />
 
 
     <EditText
@@ -142,12 +143,14 @@
         android:layout_width="378dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/brevDesc"
         android:ems="10"
-        android:text="@string/brevDesc"
+        android:inputType="textShortMessage|text"
         app:layout_constraintEnd_toEndOf="@+id/tecnicoAsig"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:text="@string/brevDesc" />
 
 
     <EditText
@@ -156,7 +159,7 @@
         android:layout_height="123dp"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
+        android:inputType="textLongMessage|textMultiLine|textNoSuggestions|text"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/breveDesc"

@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 import practica2.sebastiancardonahenao.iesseveroochoa.practica4.model.Tarea;
 
 public class AnyadirTarea extends AppCompatActivity {
@@ -20,6 +22,7 @@ public class AnyadirTarea extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        tarea=null;
         super.onCreate(savedInstanceState);
         this.setTitle("Nueva Tarea");
 
@@ -51,7 +54,29 @@ public class AnyadirTarea extends AppCompatActivity {
 
                     }
                 });
+        Bundle bundle = getIntent().getExtras();
+        tarea = bundle.getParcelable("Datos");
+        if (tarea!=null){
+            this.setTitle("Editar Tarea "+tarea.getId());
+            editarTarea();
+        }
     }
+
+    private void editarTarea() {
+        tecnicoAsig = findViewById(R.id.tecnicoAsig);
+        breveDesc = findViewById(R.id.breveDesc);
+        descripcion = findViewById(R.id.descripcion);
+        tecnicoAsig.setText(tarea.getTecnico());
+        breveDesc.setText(tarea.getResumen());
+        descripcion.setText(tarea.getDesc());
+        String[] categoria = getResources().getStringArray(R.array.categoria);
+        categorias.setSelection(Arrays.asList(categoria).indexOf(tarea.getCategoria()));
+        String[] estado = getResources().getStringArray(R.array.estado);
+        estados.setSelection(Arrays.asList(estado).indexOf(tarea.getEstado()));
+        String[] priori = getResources().getStringArray(R.array.prioridad);
+        prioridad.setSelection(Arrays.asList(priori).indexOf(tarea.getPrioridad()));
+    }
+
     /**Spinner categorias,estados,prioridad;
      EditText tecnicoAsig, breveDesc, descripcion**/
     public void Guardar(View v){
@@ -66,8 +91,8 @@ public class AnyadirTarea extends AppCompatActivity {
         String brev = String.valueOf(breveDesc.getText());
         String descrip = String.valueOf(descripcion.getText());
 
-        if ( !cat.equals("") || !est.equals("") || !prio.equals("") ){
-            if (tarea!=null){
+        if (!cat.equals("") || !est.equals("") || !prio.equals("") || !tec.equals("")|| !brev.equals("")|| !descrip.equals("")){
+            if (tarea!=null && tarea.getTecnico()!=null && tarea.getResumen()!=null){
                 tarea.setCategoria(cat);
                 tarea.setEstado(est);
                 tarea.setPrioridad(prio);

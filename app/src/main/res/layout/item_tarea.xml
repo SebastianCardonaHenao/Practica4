@@ -17,7 +17,7 @@
 
     <TextView
         android:id="@+id/resumen"
-        android:layout_width="@android:dimen/thumbnail_width"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/editar"
@@ -34,19 +34,19 @@
 
     <TextView
         android:id="@+id/tecnico"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/resumen"
         android:layout_alignStart="@+id/resumen"
         android:layout_alignEnd="@+id/resumen"
         android:layout_alignBottom="@+id/imagenTarea"
         android:ellipsize="end"
-        android:maxLines="2"
+        android:maxLines="1"
         android:text="Breve descripción de cada item"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/editar"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imagenTarea"
+        app:layout_constraintStart_toStartOf="@+id/resumen"
         app:layout_constraintTop_toBottomOf="@+id/resumen"
         tools:text="Este texto será para el técnico." />
 
