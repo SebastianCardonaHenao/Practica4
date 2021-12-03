@@ -28,6 +28,7 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/editar"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imagenTarea"
         app:layout_constraintTop_toTopOf="@+id/imagenTarea" />
 
